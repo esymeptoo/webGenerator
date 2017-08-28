@@ -1,15 +1,15 @@
 {
   "env": {
     "NODE_ENV": "development",
-    "PORT": "8080"
+    "PORT": "5000"
   },
   "execMap": {
     "": "node",
     "js": "node"
   },
   "watch": [
-    "src/routes",
-    "src/server.js",
+    "server/routes",
+    "server/server.js",
     "middleware",
     "modules",
     "models"

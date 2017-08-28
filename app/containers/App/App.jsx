@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './App.less'
 
 export default class App extends React.Component {
     constructor(props) {
@@ -7,7 +8,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div>
-                <div>{this.props.children}</div>
+                <div className="app-container">{this.props.children}</div>
             </div>
         )
     }

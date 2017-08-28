@@ -35,8 +35,8 @@ var config = {
         loaders: ['style-loader', 'css-loader', 'less-loader']
       },
       {
-        test: /\.(png|jpg)$/,
-        loader: 'file-loader?name=/[name].[hash:8].[ext]'
+        test: /\.(png|jpe?g|gif|svg|m3u8)(\?.*)?$/,
+        loader: 'url-loader',
       },
       {
         test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,

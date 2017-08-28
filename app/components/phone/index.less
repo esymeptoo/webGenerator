@@ -1,0 +1,41 @@
+.phone-container {
+    position: fixed;
+    left: 100px;
+    right: 30%;
+    background: #ededed;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .inner-phone {
+        width: 340px;
+        height: 697px;
+        .inner-container {
+            height: 100px;
+            width: 93%;
+            margin: auto;
+            margin-top: 88px;
+            height: 560px;
+            overflow-y: auto;
+            position: relative;
+        }
+    }
+    .submit {
+        background: #BD97EA;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        width: 70px;
+        height: 28px;
+        border-width: 0;
+        border-radius: 4px;
+        color: white;
+        transform-origin: 50%, 50%;
+        transition: all .3s linear;
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.2)
+        }
+    }
+}
