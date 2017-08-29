@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux'
 import * as Actions from '../../actions'
 import './index.less'
 
-import SingleConfig from './singleConfig'
+import SingleConfig from './single/singleConfig'
+import SwiperConfig from './swiper/swiperConfig'
 
 class Config extends React.Component {
     constructor(props) {
@@ -16,8 +17,11 @@ class Config extends React.Component {
                 return (
                     <SingleConfig key="1" props={item} />
                 )
+            } else if (item.type == 2) {
+                return (
+                    <SwiperConfig key="2" props={item}/>
+                )
             }
-            return item
         });
         return (
             <div className="config-container">

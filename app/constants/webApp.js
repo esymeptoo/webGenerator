@@ -1,0 +1,11 @@
+export const ADDCOMPONENT = 'addComponent'          //新增组件
+export const DELETECOMPONENT = 'deleteComponent'    //删除组件
+export const CHANGECHOOSEDATA = 'changeChooseData'    //改变选中组件
+export const INPUTCHANGE = 'inputChange'            //跳转链接输入框变化
+export const UPLOADSUCCESS = 'uploadSuccess'        //单张图片上传成功
+export const CHECKBOX = 'checkboxChange'            //是否固定到头部单选框变化
+export const SWIPERUPLOADSUCCESS = 'swiperUploadSuccess' //轮播图片上传成功
+export const ADDSWIPERIMG = 'addSwiperImg'          //新增轮播图
+export const DELETESWIPERIMG = 'deleteSwiperImg'    //删除轮播图
+export const MOVESWIPERIMG = 'moveSwiperImg'        //前移轮播图
+export const UPDATESWIPERIMG = 'updateSwiperImg'    //更新当前轮播图

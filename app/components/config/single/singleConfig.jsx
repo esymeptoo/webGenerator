@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as Actions from '../../actions'
+import * as Actions from '../../../actions'
 import './singleConfig.less'
 
 class SingleConfig extends React.Component {
@@ -12,27 +12,12 @@ class SingleConfig extends React.Component {
         this.props.actions.inputChange(e.target.value)
     }
     uploadImg = (e) => {
-        var file;
-        try {
-            file = e.target.files[0].type.split('/')[1];
-        }
-        catch (e) {
-            file = ''
-        }
-        if (file == 'jpeg' || file == 'png' || file == 'gif' || file == 'jpg') {
-            console.log('准备上传')
-            let param = new FormData();
-            param.append('img', e.target.files[0], e.target.files[0].name);
-            e.target.value = ''
-            this.props.actions.upload(param)
-        } else {
-            alert('请上传正确的图片格式')
-        }
+        this.props.actions.upload(e, {
+            dispatch: 'uploadSuccess'
+        })
     }
     toBeTop = (e) => {
-        // console.log(e.target.value == 'on')
-        // this.props.actions.checkboxChange(e.target.value == 'on')
-        
+        this.props.actions.checkboxChange(e.target.checked)
     }
     render() {
         return (

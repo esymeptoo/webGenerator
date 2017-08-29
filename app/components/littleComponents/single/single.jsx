@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 import * as Actions from '../../../actions'
 import './single.less'
 import imgSrc from './single.png'
+import singleDemo from './singleDemo.png'
 
 class Single extends React.Component {
     constructor(props) {
@@ -16,9 +17,9 @@ class Single extends React.Component {
             payload: {
                 id: new Date().getTime(),
                 type: val,
-                imgUrl: '/upload/upload_1503913087794.png',
+                imgUrl: singleDemo,
                 jumpUrl: '',
-                fixedTop: true
+                fixedTop: false
             }
         })
     }
@@ -26,7 +27,7 @@ class Single extends React.Component {
         return (
             <div className="singleDownLoad-out">
                 <div className="singleDownLoad-container" onClick={this.handleClick.bind(this, 1)}>
-                    <img className="showImg" src={imgSrc} />
+                    <img className="showImg" src={imgSrc}/>
                 </div>
                 <p className="c-title">头部链接</p>
             </div>

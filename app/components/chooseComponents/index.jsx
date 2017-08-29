@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './index.less'
 import Single from '../littleComponents/single/single'
-import SingleImg from '../littleComponents/singleImg/singleImg'
+import Swiper from '../littleComponents/swiper/swiper'
 
 class ChooseComponent extends React.Component {
     constructor(props) {
@@ -11,7 +11,7 @@ class ChooseComponent extends React.Component {
         return (
             <div className="chooseComponent-container">
                 <Single />
-                <SingleImg />
+                <Swiper />
             </div>
         )
     }

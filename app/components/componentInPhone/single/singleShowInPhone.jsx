@@ -2,9 +2,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as Actions from '../../actions'
+import * as Actions from '../../../actions'
 import './singleShowInPhone.less'
-import imgSrc from './delete.png'
+import imgSrc from '../delete.png'
 
 class SingleShowInPhone extends React.Component {
     constructor(props) {
@@ -35,7 +35,7 @@ class SingleShowInPhone extends React.Component {
         }: {}
         return (
             <div className="singleShowInPhone-container" onClick={this.changeChooseData.bind(this, data)} style={fixTop}>
-                <img className="delete" src={imgSrc} alt="" onClick={(e) => { this.deleteComponent(e, data.id) }} />
+                <img className="delete" src={imgSrc} alt="" onClick={(e) => { this.deleteComponent(e, data.id) }}  style={{opacity: (this.props.show? 0: 1)}}/>
                 <img src={data.imgUrl} alt="" style={{ width: '100%', height: '100%' }} />
             </div>
         )
