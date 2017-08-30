@@ -6,15 +6,41 @@ import './index.less'
 import up from './up.png'
 import _delete from './deleteImg.png'
 
+//组件styles通过点击确定加载到组件内部
+
 class SwiperConfig extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            style: {
+                img: {
+                    width: 100
+                },
+                swiper: {
+                    top: 0
+                }
+            }
+        }
     }
     uploadChange = (e, data) => {
         this.props.actions.upload(e, data)
     }
     operateImg = (data) => {
         this.props.actions.operateSwiperImg(data)
+    }
+    inputChange = (e, a, b) => {
+        if (e.target.value < 0 || e.target.value > 100) {
+            return 
+        }
+        let obj = {
+            [a]: {
+                [b]: e.target.value + '%'
+            }
+        }
+        this.props.actions.changeStyle({
+            dispatch: 'changeStyle',
+            data: obj
+        })
     }
     render() {
         let uploadConfig = this.props.props.img.map((item, index) => {
@@ -56,13 +82,14 @@ class SwiperConfig extends React.Component {
                         <label>
                             距离顶部高度:
                         </label>
-                        <input type="text" placeholder="请填写百分比" />
+                        {/* <input type="number" placeholder="请填写百分比" min="0" max="100" value={this.state.style.swiper.top} onChange={(e) => {this.inputChange(e, 'swiper', 'top')}}/> */}
+                        <input type="number" placeholder="请填写百分比" min="0" max="100" value={parseInt(this.props.props.style.swiper.top)} onChange={(e) => {this.inputChange(e, 'swiper', 'top')}}/>
                     </p>
                     <p>
                         <label>
                             轮播图片宽度:
                         </label>
-                        <input type="text" placeholder="请填写百分比" />
+                        <input type="number" placeholder="请填写百分比" min="0" max="100" value={parseInt(this.props.props.style.img.width)} onChange={(e) => {this.inputChange(e, 'img', 'width')}}/>
                     </p>
                     <div style={{ position: 'relative' }}>
                         <button className="add-img">新增轮播图片</button>
@@ -81,8 +108,11 @@ class SwiperConfig extends React.Component {
                 <h5>背景配置</h5>
                 <div style={{ position: 'relative' }}>
                     <button className="upload-img">上传背景图片</button>
-                    <input type="file" onChange={(e) => { this.uploadImg(e) }} />
+                    <input type="file" onChange={(e) => { this.uploadChange(e, {
+                        dispatch: 'uploadSwiperBg'
+                    }) }} />
                 </div>
+                <img style={{ width: '200px', height: '100px' }} src={this.props.props.backUrl} alt=""/>
             </div>
         )
     }

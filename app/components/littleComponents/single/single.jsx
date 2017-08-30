@@ -29,7 +29,7 @@ class Single extends React.Component {
                 <div className="singleDownLoad-container" onClick={this.handleClick.bind(this, 1)}>
                     <img className="showImg" src={imgSrc}/>
                 </div>
-                <p className="c-title">头部链接</p>
+                <p className="c-title">图片链接</p>
             </div>
         )
     }

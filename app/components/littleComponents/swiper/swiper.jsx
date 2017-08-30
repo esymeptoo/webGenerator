@@ -18,22 +18,29 @@ class Swiper extends React.Component {
             payload: {
                 id: new Date().getTime(),
                 type: val,
-                backUrl: swiperBg,
+                config: {
+                    effect: 'slider',
+                    loop: true,
+                    autoplay: 1000,
+                },
+                backUrl: '/upload/upload_1504057169897.jpeg',
                 style: {
                     //轮播器属性
                     swiper: {
-                        position: 'absolute',
-                        top: '40px',
+                        top: '25%',
                     },
                     //图片属性
                     img: {
-                        width: '100%'
+                        width: '80%'
                     }
                 },
-                //图片配置
+                //轮播图片配置
                 img: [
                     {
-                        imgUrl: swiperDemo
+                        imgUrl: '/upload/upload_1504057194395.png'
+                    },
+                    {
+                        imgUrl: '/upload/upload_1504057188899.png'
                     }
                 ]
             }

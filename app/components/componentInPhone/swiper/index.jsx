@@ -7,6 +7,10 @@ import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 import './index.less'
 import imgSrc from '../delete.png'
+import Swiper from '../../swiper'
+import ReactSwipe from 'react-swipe';
+// import { Slider } from 'amazeui-react'
+
 
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -33,9 +37,12 @@ class SwiperShowInPhone extends React.Component {
     render() {
         let data = this.props.props
         let swiperStyles = data.style.swiper
+        Object.assign(swiperStyles, {
+            position: 'absolute',
+        })
         let Img = data.img.map((item, index) => {
             return (
-                <img style={{ width: data.style.img.width, display: 'block', margin: 'auto' }} src={item.imgUrl} key={index} />
+                <img style={{ width: (data.style.img.width), display: 'block', margin: 'auto' }} src={item.imgUrl} key={index} />
             )
         })
         return (
@@ -43,10 +50,49 @@ class SwiperShowInPhone extends React.Component {
                 <img className="delete" src={imgSrc} alt="" onClick={(e) => { this.deleteComponent(e, data.id) }} style={{ opacity: (this.props.show ? 0 : 1) }} />
                 <div style={{position: 'relative'}}>
                     <img className="swiper-bg" src={data.backUrl} alt="" />
-                    <div style={swiperStyles}>
-                        <AutoPlaySwipeableViews>
+                    <div className="_swiper-container" style={swiperStyles}>
+                    {/* <Slider>
+                        <Slider.Item>
+                        <img
+                            src="http://s.amazeui.org/media/i/demos/bing-1.jpg"/>
+                        </Slider.Item>
+                        <Slider.Item><img
+                        src="http://s.amazeui.org/media/i/demos/bing-2.jpg"/></Slider.Item>
+                        <Slider.Item>
+                        <img
+                            src="http://s.amazeui.org/media/i/demos/bing-3.jpg"/></Slider.Item>
+                        <Slider.Item>
+                        <img
+                            src="http://s.amazeui.org/media/i/demos/bing-4.jpg"/></Slider.Item>
+                    </Slider> */}
+                    {/* <ReactSwipe
+                        key = {data.img.length}
+                        swipeOptions={{
+                        startSlide: 0,
+                        speed: 400,
+                        auto: 1000,
+                        continuous: true,
+                        disableScroll: false,
+                        stopPropagation: false,
+                        callback: function(index, elem){
+                        },
+                        transitionEnd: function(index,elem){
+                        }
+                    }}>
+                        {
+                            data.img.map((img,i)=>{
+                                return(
+                                        <div className="swipe" key={i} style={{textAlign: 'center'}}>
+                                            <img style={{width: data.style.img.width}} src={img.imgUrl} />
+                                        </div>
+                                )
+                            })
+                        }
+                    </ReactSwipe> */}
+                        <Swiper data={data}/>
+                        {/* <AutoPlaySwipeableViews continuous="true">
                             {Img}
-                        </AutoPlaySwipeableViews>
+                        </AutoPlaySwipeableViews> */}
                     </div>
                 </div>
             </div>

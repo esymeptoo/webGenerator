@@ -11,6 +11,9 @@ export default function AddLittle(state = initialData, action) {
     let data;
     switch (action.type) {
         case _.ADDCOMPONENT:
+            if (state.data.length == 0) {
+                state.chooseData.push(action.payload)
+            }
             state.data.push(action.payload)
             return {
                 ...state
@@ -41,7 +44,7 @@ export default function AddLittle(state = initialData, action) {
         case _.UPLOADSUCCESS:
             data = state.data.map(item => {
                 if (item.id == state.chooseData[0].id) {
-                    item.imgUrl = action.payload
+                    item.imgUrl = action.payload.imgUrl
                     return item
                 }
                 return item
@@ -109,7 +112,29 @@ export default function AddLittle(state = initialData, action) {
             data = state.data.map(item => {
                 if (item.id == state.chooseData[0].id) {
                     let tmp = item.img.splice(action.payload.index, 1)
-                    item.img.splice(action.payload.index - 1 ,0, tmp[0])
+                    item.img.splice(action.payload.index - 1, 0, tmp[0])
+                }
+                return item
+            })
+            return {
+                ...state,
+                data: data
+            }
+        case _.uploadSwiperBg:
+            data = state.data.map(item => {
+                if (item.id == state.chooseData[0].id) {
+                    item.backUrl = action.payload.imgUrl
+                }
+                return item
+            })
+            return {
+                ...state,
+                data: data
+            }
+        case _.CHANGESTYLE:
+            data = state.data.map(item => {
+                if (item.id == state.chooseData[0].id) {
+                    Object.assign(item.style, action.payload)
                 }
                 return item
             })

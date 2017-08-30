@@ -29,7 +29,7 @@ class SingleShowInPhone extends React.Component {
         let data = this.props.props
         let fixTop = (data.fixedTop == true) ? {
             'position': 'fixed',
-            'top': '180px',
+            'top': '90px',
             'zIndex': '99',
             'width': '316px'
         }: {}
