@@ -30,7 +30,7 @@ class SwiperConfig extends React.Component {
     }
     inputChange = (e, a, b) => {
         if (e.target.value < 0 || e.target.value > 100) {
-            return 
+            return
         }
         let obj = {
             [a]: {
@@ -40,6 +40,12 @@ class SwiperConfig extends React.Component {
         this.props.actions.changeStyle({
             dispatch: 'changeStyle',
             data: obj
+        })
+    }
+    animationChange =(e, data) => {
+        this.props.actions.changeSlickAnimation({
+            data: e.target.value,
+            dispatch: data.dispatch
         })
     }
     render() {
@@ -83,13 +89,23 @@ class SwiperConfig extends React.Component {
                             距离顶部高度:
                         </label>
                         {/* <input type="number" placeholder="请填写百分比" min="0" max="100" value={this.state.style.swiper.top} onChange={(e) => {this.inputChange(e, 'swiper', 'top')}}/> */}
-                        <input type="number" placeholder="请填写百分比" min="0" max="100" value={parseInt(this.props.props.style.swiper.top)} onChange={(e) => {this.inputChange(e, 'swiper', 'top')}}/>
+                        <input type="number" placeholder="请填写百分比" min="0" max="100" value={parseInt(this.props.props.style.swiper.top)} onChange={(e) => { this.inputChange(e, 'swiper', 'top') }} />
                     </p>
                     <p>
                         <label>
                             轮播图片宽度:
                         </label>
-                        <input type="number" placeholder="请填写百分比" min="0" max="100" value={parseInt(this.props.props.style.img.width)} onChange={(e) => {this.inputChange(e, 'img', 'width')}}/>
+                        <input type="number" placeholder="请填写百分比" min="0" max="100" value={parseInt(this.props.props.style.img.width)} onChange={(e) => { this.inputChange(e, 'img', 'width') }} />
+                    </p>
+                    <p>
+                        <label>
+                            选择动画效果:
+                        </label>
+                        <select name="slickAmation" id="slickAmation" value={this.props.props.config.chooseAnimation} onChange={(e) => {this.animationChange(e, {
+                            dispatch: 'changeAnimation'})}}>
+                            <option value="0">淡入淡出</option>
+                            <option value="1">平滑移动</option>
+                        </select>
                     </p>
                     <div style={{ position: 'relative' }}>
                         <button className="add-img">新增轮播图片</button>
@@ -108,11 +124,13 @@ class SwiperConfig extends React.Component {
                 <h5>背景配置</h5>
                 <div style={{ position: 'relative' }}>
                     <button className="upload-img">上传背景图片</button>
-                    <input type="file" onChange={(e) => { this.uploadChange(e, {
-                        dispatch: 'uploadSwiperBg'
-                    }) }} />
+                    <input type="file" onChange={(e) => {
+                        this.uploadChange(e, {
+                            dispatch: 'uploadSwiperBg'
+                        })
+                    }} />
                 </div>
-                <img style={{ width: '200px', height: '100px' }} src={this.props.props.backUrl} alt=""/>
+                <img style={{ width: '200px', height: '100px' }} src={this.props.props.backUrl} alt="" />
             </div>
         )
     }

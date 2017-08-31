@@ -11,3 +11,4 @@ export const MOVESWIPERIMG = 'moveSwiperImg'        //前移轮播图
 export const UPDATESWIPERIMG = 'updateSwiperImg'    //更新当前轮播图
 export const uploadSwiperBg = 'uploadSwiperBg'      //上传轮播背景图
 export const CHANGESTYLE = 'changeStyle'            //更改组件style属性  --> 后期优化吧 ✧(≖ ◡ ≖✿)嘿嘿
+export const CHANGEANIMATION = 'changeAnimation'    //更改轮播动画

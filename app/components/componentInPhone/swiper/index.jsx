@@ -9,6 +9,8 @@ import './index.less'
 import imgSrc from '../delete.png'
 import Swiper from '../../swiper'
 import ReactSwipe from 'react-swipe';
+import ReactSlick from 'react-slick'
+
 // import { Slider } from 'amazeui-react'
 
 
@@ -36,22 +38,41 @@ class SwiperShowInPhone extends React.Component {
     }
     render() {
         let data = this.props.props
+        //配置轮播样式 
         let swiperStyles = data.style.swiper
         Object.assign(swiperStyles, {
             position: 'absolute',
         })
         let Img = data.img.map((item, index) => {
             return (
-                <img style={{ width: (data.style.img.width), display: 'block', margin: 'auto' }} src={item.imgUrl} key={index} />
+                <div key={index} style={{textAlign: 'center'}}>
+                    <img style={{ width: (data.style.img.width), display: 'inline-block', margin: 'auto'}} src={item.imgUrl} />
+                </div>
             )
+        })
+        var settings = {
+            dots: false,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            arrows: false
+        };
+        //轮播方式
+        Object.assign(settings, {
+            [data.config.animation[data.config.chooseAnimation]]: true
         })
         return (
             <div className="swiperShowInPhone-container" onClick={this.changeChooseData.bind(this, data)}>
                 <img className="delete" src={imgSrc} alt="" onClick={(e) => { this.deleteComponent(e, data.id) }} style={{ opacity: (this.props.show ? 0 : 1) }} />
-                <div style={{position: 'relative'}}>
+                <div style={{ position: 'relative' }}>
                     <img className="swiper-bg" src={data.backUrl} alt="" />
                     <div className="_swiper-container" style={swiperStyles}>
-                    {/* <Slider>
+                        <ReactSlick {...settings} style={{ height: 'auto', width: '100%' }}>
+                            {Img}
+                        </ReactSlick>
+                        {/* <Slider>
                         <Slider.Item>
                         <img
                             src="http://s.amazeui.org/media/i/demos/bing-1.jpg"/>
@@ -65,7 +86,7 @@ class SwiperShowInPhone extends React.Component {
                         <img
                             src="http://s.amazeui.org/media/i/demos/bing-4.jpg"/></Slider.Item>
                     </Slider> */}
-                    {/* <ReactSwipe
+                        {/* <ReactSwipe
                         key = {data.img.length}
                         swipeOptions={{
                         startSlide: 0,
@@ -89,7 +110,7 @@ class SwiperShowInPhone extends React.Component {
                             })
                         }
                     </ReactSwipe> */}
-                        <Swiper data={data}/>
+                        {/* <Swiper data={data}/> */}
                         {/* <AutoPlaySwipeableViews continuous="true">
                             {Img}
                         </AutoPlaySwipeableViews> */}

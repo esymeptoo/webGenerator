@@ -19,11 +19,14 @@ class Swiper extends React.Component {
                 id: new Date().getTime(),
                 type: val,
                 config: {
-                    effect: 'slider',
-                    loop: true,
-                    autoplay: 1000,
+                    chooseAnimation: 0,         //选择轮播的方式     默认为0
+                    animation: {                //所有轮播方式
+                        0: 'fade',              //淡出
+                        1: 'swiper'             //平移 
+                    }
                 },
-                backUrl: '/upload/upload_1504057169897.jpeg',
+                showBg: true,                   //是否带有背景图
+                backUrl: '/upload/upload_1504142392629.jpeg',
                 style: {
                     //轮播器属性
                     swiper: {
@@ -37,10 +40,10 @@ class Swiper extends React.Component {
                 //轮播图片配置
                 img: [
                     {
-                        imgUrl: '/upload/upload_1504057194395.png'
+                        imgUrl: '/upload/upload_1504142399563.png'
                     },
                     {
-                        imgUrl: '/upload/upload_1504057188899.png'
+                        imgUrl: '/upload/upload_1504142441189.png'
                     }
                 ]
             }

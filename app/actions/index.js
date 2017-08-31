@@ -53,6 +53,7 @@ export const operateSwiperImg = (data) => dispatch => {
         }
     })
 }
+//改变轮播组件style
 export const changeStyle = (data) => dispatch => {
     dispatch({
         type: data.dispatch,
@@ -60,6 +61,12 @@ export const changeStyle = (data) => dispatch => {
     })
 }
 
+export const changeSlickAnimation = data => dispatch  => {
+    dispatch({
+        type: data.dispatch,
+        payload: data.data
+    })
+}
 
 //上传包装成promise 以便使用async-await  好看一点  ✧(≖ ◡ ≖✿)嘿嘿
 function uploadImg(param, config) {

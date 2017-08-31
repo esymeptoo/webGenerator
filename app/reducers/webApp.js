@@ -142,6 +142,17 @@ export default function AddLittle(state = initialData, action) {
                 ...state,
                 data: data
             }
+        case _.CHANGEANIMATION: 
+            data = state.data.map(item => {
+                if (item.id == state.chooseData[0].id) {
+                    item.config.chooseAnimation = action.payload
+                }
+                return item
+            })
+            return {
+                ...state,
+                data: data
+            }
         default: return state;
     }
 }
