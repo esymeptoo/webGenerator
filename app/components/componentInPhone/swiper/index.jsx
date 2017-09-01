@@ -3,19 +3,19 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../../../actions'
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
+// import SwipeableViews from 'react-swipeable-views';
+// import { autoPlay } from 'react-swipeable-views-utils';
 import './index.less'
 import imgSrc from '../delete.png'
-import Swiper from '../../swiper'
-import ReactSwipe from 'react-swipe';
+// import Swiper from '../../swiper'
+// import ReactSwipe from 'react-swipe';
 import ReactSlick from 'react-slick'
 
 // import { Slider } from 'amazeui-react'
 
 
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+// const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 class SwiperShowInPhone extends React.Component {
     constructor(props) {
@@ -72,6 +72,7 @@ class SwiperShowInPhone extends React.Component {
                         <ReactSlick {...settings} style={{ height: 'auto', width: '100%' }}>
                             {Img}
                         </ReactSlick>
+          
                         {/* <Slider>
                         <Slider.Item>
                         <img
@@ -86,6 +87,7 @@ class SwiperShowInPhone extends React.Component {
                         <img
                             src="http://s.amazeui.org/media/i/demos/bing-4.jpg"/></Slider.Item>
                     </Slider> */}
+
                         {/* <ReactSwipe
                         key = {data.img.length}
                         swipeOptions={{
@@ -110,7 +112,9 @@ class SwiperShowInPhone extends React.Component {
                             })
                         }
                     </ReactSwipe> */}
+
                         {/* <Swiper data={data}/> */}
+
                         {/* <AutoPlaySwipeableViews continuous="true">
                             {Img}
                         </AutoPlaySwipeableViews> */}

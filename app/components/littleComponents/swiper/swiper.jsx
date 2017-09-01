@@ -7,6 +7,8 @@ import './swiper.less'
 import imgSrc from './single.png'
 import swiperBg from './swiper-bg.png'
 import swiperDemo from './swiperDemo.jpg'
+import slick1 from './1.png'
+import slick2 from './2.png'
 
 class Swiper extends React.Component {
     constructor(props) {
@@ -25,7 +27,6 @@ class Swiper extends React.Component {
                         1: 'swiper'             //平移 
                     }
                 },
-                showBg: true,                   //是否带有背景图
                 backUrl: '/upload/upload_1504142392629.jpeg',
                 style: {
                     //轮播器属性
@@ -40,10 +41,10 @@ class Swiper extends React.Component {
                 //轮播图片配置
                 img: [
                     {
-                        imgUrl: '/upload/upload_1504142399563.png'
+                        imgUrl: slick1
                     },
                     {
-                        imgUrl: '/upload/upload_1504142441189.png'
+                        imgUrl: slick2
                     }
                 ]
             }

@@ -51,7 +51,7 @@ var config = {
   plugins: [
     new webpack.optimize.UglifyJsPlugin({ minimize: true }),
     new HtmlwebpackPlugin({
-      title: 'react-ele-webapp',
+      title: 'web',
       template: path.resolve(projectRootPath, 'public/index.html'),
       filename: 'index.html',
       chunks: ['app', 'vendors'],
